@@ -1,0 +1,32 @@
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  name: wattx-gke-snapshooter
+spec:
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: wattx-gke-snapshooter
+    spec:
+      containers:
+      - image: eu.gcr.io/wattx-infra/gke-snapshooter:0.1
+        name: wattx-gke-snapshooter
+        args:
+          - -in-cluster
+          - -slack-channel=cloud-infra
+          - -slack-token=$(SLACK_TOKEN)
+          - -compute-config=/etc/secrets/gceKey
+        env:
+        - name: SLACK_TOKEN
+          valueFrom:
+            secretKeyRef:
+              name: wattx-common
+              key: slackToken
+        volumeMounts:
+          - name: secrets
+            mountPath: /etc/secrets
+      volumes:
+        - name: secrets
+          secret:
+            secretName: wattx-common 
