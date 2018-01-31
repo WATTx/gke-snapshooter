@@ -1,4 +1,6 @@
 # GKE Snapshooter
+[![FOSSA Status](https://app.fossa.io/api/projects/git%2Bgithub.com%2FWATTx%2Fgke-snapshooter.svg?type=shield)](https://app.fossa.io/projects/git%2Bgithub.com%2FWATTx%2Fgke-snapshooter?ref=badge_shield)
+
 
 GKE snapshooter creates snapshots of k8s persistent volumes. It has the following logic:
 
@@ -52,3 +54,7 @@ You need `govendor` to manage vendored dependencies: https://github.com/kardiano
 
 - Update vendored dependencies: `govendor update +vendor`
 - Add new dependencies: `govendor add -h`
+
+
+## License
+[![FOSSA Status](https://app.fossa.io/api/projects/git%2Bgithub.com%2FWATTx%2Fgke-snapshooter.svg?type=large)](https://app.fossa.io/projects/git%2Bgithub.com%2FWATTx%2Fgke-snapshooter?ref=badge_large)
